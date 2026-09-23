@@ -61,7 +61,7 @@
     </div>
     <div class="flex items-center gap-2">
       <span id="slideCounter" class="px-3 py-1 rounded-full text-xs sm:text-sm font-bold mono bg-white/5 border border-white/10 text-emerald-400">
-        SLIDE 01 / 10
+        SLIDE 01 / 09
       </span>
     </div>
   </header>
@@ -409,41 +409,9 @@
       </div>
     </section>
 
-    <!-- ── SLIDE 8: 純前端本地運行與體驗優化 ── -->
+    <!-- ── SLIDE 8: 雙軌食譜推薦 ── -->
     <section class="slide-page" id="slide-8">
-      <div class="text-xs sm:text-sm font-bold text-emerald-400 tracking-widest uppercase mb-1.5">08 / Client-Side Inference</div>
-      <h2 class="text-3xl sm:text-4xl font-black text-white mb-5">純前端本機運行：零伺服器成本與體驗優化</h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-5">
-        <div class="glass-card p-5 rounded-2xl border-t-4 border-t-cyan-400 shadow-lg">
-          <div class="text-3xl mb-3">⚡</div>
-          <h3 class="text-base sm:text-lg font-bold text-white mb-2">純本機端算力 (WebGL / Wasm)</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            透過 WebGL 與 Wasm 技術直接在使用者裝置上本地運行，免去上傳照片的網路延遲，且 <b class="text-cyan-400">100% 零雲端伺服器費用</b>。
-          </p>
-        </div>
-
-        <div class="glass-card p-5 rounded-2xl border-t-4 border-t-emerald-400 shadow-lg">
-          <div class="text-3xl mb-3">🔄</div>
-          <h3 class="text-base sm:text-lg font-bold text-white mb-2">非同步背景預載入 (Async Preload)</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            網頁載入時即在背景非同步初始化模型引擎，<b class="text-emerald-400">盡可能平滑相機啟動時的等待時間</b>，兼顧記憶體與順暢度。
-          </p>
-        </div>
-
-        <div class="glass-card p-5 rounded-2xl border-t-4 border-t-amber-400 shadow-lg">
-          <div class="text-3xl mb-3">🎛️</div>
-          <h3 class="text-base sm:text-lg font-bold text-white mb-2">靈敏度與信心門檻調節</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            提供信心門檻手動微調機制，在廚房不同黃白光源或反光雜訊下過濾誤判，<b class="text-amber-400">確保辨識結果穩定可靠</b>。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── SLIDE 9: 雙軌食譜推薦 ── -->
-    <section class="slide-page" id="slide-9">
-      <div class="text-xs sm:text-sm font-bold text-purple-400 tracking-widest uppercase mb-1.5">09 / Smart Recipes</div>
+      <div class="text-xs sm:text-sm font-bold text-purple-400 tracking-widest uppercase mb-1.5">08 / Smart Recipes</div>
       <h2 class="text-3xl sm:text-4xl font-black text-white mb-5">雙軌食譜推薦：100 道家常菜免費查 ＋ AI 創意料理</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
@@ -469,36 +437,42 @@
       </div>
     </section>
 
-    <!-- ── SLIDE 10: 解決前端三個實際問題 ── -->
-    <section class="slide-page" id="slide-10">
-      <div class="text-xs sm:text-sm font-bold text-amber-400 tracking-widest uppercase mb-1.5">10 / Practical Frontend Fixes</div>
-      <h2 class="text-3xl sm:text-4xl font-black text-white mb-5">解決前端三個實際問題 ＆ 核心能力總結</h2>
+    <!-- ── SLIDE 9: 前端工程落地與體驗優化 ── -->
+    <section class="slide-page" id="slide-9">
+      <div class="text-xs sm:text-sm font-bold text-amber-400 tracking-widest uppercase mb-1.5">09 / Frontend Engineering & UX</div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-5">前端工程落地與使用者體驗打磨</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
-        <div class="glass-card p-5 rounded-2xl shadow-lg">
-          <div class="text-rose-400 font-bold text-xs mono mb-1.5">問題 01</div>
-          <h3 class="text-base font-bold text-white mb-2">調滑桿時畫面不亂跳</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">滑動調整靈敏度時容易誤觸背景翻頁。</p>
-          <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm text-emerald-300">
-            <b>解法</b>：加裝防誤觸開關，調整面板打開時先暫停翻頁功能，調完再恢復。
+        <div class="glass-card p-5 rounded-2xl border-t-4 border-t-cyan-400 shadow-lg">
+          <div class="text-cyan-400 font-bold text-xs mono mb-1.5">推論與預載入</div>
+          <h3 class="text-base font-bold text-white mb-2">純本機算力 ＆ 非同步預載入</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+            透過 WebGL/Wasm 在瀏覽器本機推論（0 伺服器費），並在背景非同步初始化引擎，平滑相機等待時間。
+          </p>
+          <div class="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs sm:text-sm text-cyan-300">
+            ✔ 0 雲端傳輸延遲，照片 100% 留存本機。
           </div>
         </div>
 
-        <div class="glass-card p-5 rounded-2xl shadow-lg">
-          <div class="text-amber-400 font-bold text-xs mono mb-1.5">問題 02</div>
-          <h3 class="text-base font-bold text-white mb-2">手機字體放大不爆版</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">長輩把字體放大到 200% 時，按鈕掉出螢幕外面。</p>
-          <div class="p-2.5 rounded-xl border border-emerald-500/20 text-xs sm:text-sm text-emerald-300 bg-emerald-500/10">
-            <b>解法</b>：RWD 彈性排版，字變大自動縮小周圍留白，確認按鈕永遠按得到。
+        <div class="glass-card p-5 rounded-2xl border-t-4 border-t-emerald-400 shadow-lg">
+          <div class="text-emerald-400 font-bold text-xs mono mb-1.5">互動與防誤觸</div>
+          <h3 class="text-base font-bold text-white mb-2">靈敏度滑桿 ＆ 手勢防誤觸</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+            提供如同相機光圈/ISO 的信心門檻微調；調整面板開啟時鎖定背景翻頁，避免操作衝突。
+          </p>
+          <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm text-emerald-300">
+            ✔ 廚房昏暗防漏抓、強光反光防誤判。
           </div>
         </div>
 
-        <div class="glass-card p-5 rounded-2xl shadow-lg">
-          <div class="text-cyan-400 font-bold text-xs mono mb-1.5">問題 03</div>
-          <h3 class="text-base font-bold text-white mb-2">iPhone 動畫絲滑 60 幀</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">iPhone 跑半透明毛玻璃彈窗動畫時容易卡頓閃爍。</p>
-          <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm text-emerald-300">
-            <b>解法</b>：分階段渲染，先定位再套毛玻璃效果，消除閃爍，滿幀 60 FPS！
+        <div class="glass-card p-5 rounded-2xl border-t-4 border-t-amber-400 shadow-lg">
+          <div class="text-amber-400 font-bold text-xs mono mb-1.5">排版與渲染</div>
+          <h3 class="text-base font-bold text-white mb-2">200% RWD ＆ iOS 60 幀</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+            手機字體放大兩倍按鈕絕不爆版；iOS 分階段渲染毛玻璃效果，消除閃爍並維持 60 FPS。
+          </p>
+          <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm text-amber-300">
+            ✔ 各種螢幕尺寸與長輩大字體完美適配。
           </div>
         </div>
       </div>
@@ -506,7 +480,7 @@
       <div class="p-4 rounded-2xl glass-card text-center border-emerald-500/40 bg-emerald-950/20 shadow-lg">
         <div class="text-base font-bold text-emerald-400 mb-1">🏆 全端實戰力總結</div>
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          深度學習模型調教（0.868 mAP） ＋ 邊緣端輕量化落地（13MB / 45ms） ＋ 前端效能治理與排錯實戰力
+          深度學習模型調教（0.868 mAP） ＋ 邊緣端輕量化落地（13MB FP16） ＋ 前端效能治理與排錯實戰力
         </p>
       </div>
     </section>
@@ -530,7 +504,7 @@
 
   <script>
     let currentSlide = 1;
-    const totalSlides = 10;
+    const totalSlides = 9;
 
     function showSlide(index) {
       document.querySelectorAll('.slide-page').forEach(page => page.classList.remove('active'));
