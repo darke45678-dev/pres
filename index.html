@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, viewport-fit=cover">
   <title>FridgeAI 智慧食材管理系統 - 5頁精煉旗艦版簡報</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -120,7 +120,7 @@
     </div>
   </header>
 
-  <!-- Main Slide Container with Swipe Detection -->
+  <!-- Main Slide Container with Smart Anti-Zoom Swipe Detection -->
   <main id="slide-container" class="flex-1 w-full overflow-hidden relative">
 
     <!-- ==================== SLIDE 1: 專案概覽與核心價值 ==================== -->
@@ -734,40 +734,62 @@
       }
     });
 
-    // Touch Swipe Gesture Detection for Mobile
+    // Smart Anti-Zoom Touch Swipe Gesture Detection for Mobile
     let touchStartX = 0;
     let touchStartY = 0;
-    let touchEndX = 0;
-    let touchEndY = 0;
+    let touchStartTime = 0;
+    let isMultiTouch = false;
 
     const container = document.getElementById('slide-container') || document.body;
 
     container.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
+      // 1. If user is using 2 or more fingers (pinch to zoom), mark as multi-touch & ignore
+      if (e.touches.length > 1) {
+        isMultiTouch = true;
+        return;
+      }
+      isMultiTouch = false;
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+      touchStartTime = Date.now();
+    }, { passive: true });
+
+    container.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 1) {
+        isMultiTouch = true;
+      }
     }, { passive: true });
 
     container.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      touchEndY = e.changedTouches[0].screenY;
-      handleGesture();
-    }, { passive: true });
+      // 2. Ignore if multi-touch / pinch zoom was active during this gesture
+      if (isMultiTouch || e.touches.length > 0) {
+        return;
+      }
 
-    function handleGesture() {
+      // 3. If user has zoomed in the page (visualViewport scale > 1.05), disable swipe flipping
+      if (window.visualViewport && window.visualViewport.scale > 1.05) {
+        return;
+      }
+
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const touchDuration = Date.now() - touchStartTime;
+
       const deltaX = touchEndX - touchStartX;
       const deltaY = touchEndY - touchStartY;
-      
-      // Horizontal swipe must be greater than 45px and more prominent than vertical scroll
-      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+
+      // 4. Stricter intentional swipe criteria:
+      // - Quick flick gesture: duration < 500ms
+      // - Horizontal distance > 60px
+      // - Horizontal movement is at least 1.8x more prominent than vertical movement
+      if (touchDuration < 500 && Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.8) {
         if (deltaX < 0) {
-          // Swiped Left -> Next Slide
-          nextSlide();
+          nextSlide(); // Swiped Left -> Next Slide
         } else {
-          // Swiped Right -> Prev Slide
-          prevSlide();
+          prevSlide(); // Swiped Right -> Prev Slide
         }
       }
-    }
+    }, { passive: true });
 
     updateSlide();
   </script>
